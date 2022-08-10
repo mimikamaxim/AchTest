@@ -24,10 +24,6 @@ class MainViewModel(private val getUserNameUC: GetUserNameUC,
     private val resultLiveDataMutable = MutableLiveData<String>()
     val resultLive: LiveData<String> = resultLiveDataMutable
 
-    fun getLiveResult(): LiveData<String>{
-        return resultLiveDataMutable
-    }
-
     fun saveUser(text:String){
         val result: Boolean = saveUserNameUC.execute(text)
         resultLiveDataMutable.value = "Save result is $result"

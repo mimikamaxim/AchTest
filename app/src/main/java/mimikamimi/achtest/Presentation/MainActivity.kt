@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         val dataEditField = findViewById<EditText>(R.id.data_edit_text)
         val btnReceiveData = findViewById<Button>(R.id.receive_btn)
         val btnSendData = findViewById<Button>(R.id.btn_put_data)
-        vm.getLiveResult().observe(this, Observer {
+        vm.resultLive.observe(this) {
             dataTextView.text = it
-        })
+        }
         btnSendData.setOnClickListener {
             val text = dataEditField.text.toString()
             vm.saveUser(text)
