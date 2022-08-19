@@ -32,6 +32,20 @@ android {
 }
 
 dependencies {
+    def koin_version= "3.2.0"
+    // Add Maven Central to your repositories if needed
+//    repositories {
+//        mavenCentral()
+//    }
+    dependencies {
+        // Koin for Android
+        implementation "io.insert-koin:koin-android:$koin_version"
+        implementation "io.insert-koin:koin-core:$koin_version"
+
+        // Koin Test
+        testImplementation "io.insert-koin:koin-test:$koin_version"
+        testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+    }
     implementation project(path: ':domain')
     implementation project(path: ':data')
     implementation 'androidx.core:core-ktx:1.7.0'

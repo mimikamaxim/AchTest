@@ -13,19 +13,20 @@ import mimikamimi.arhtest.data.repository.UserRepositoryImpl
 import mimikamimi.arhtest.data.storage.SharedPrefUserStorage
 import mimikamimi.arhtest.domain.usecase.GetUserNameUC
 import mimikamimi.arhtest.domain.usecase.SaveUserNameUC
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainActivity : AppCompatActivity() {
 
 
-    private lateinit var vm: MainViewModel
+    private val vm: MainViewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.e("AAA", "Activity created")
-        vm = ViewModelProvider(this, MainViewModelFactory(context = this))
-            .get(MainViewModel::class.java)
+//        vm = ViewModelProvider(this, MainViewModelFactory(context = this))
+//            .get(MainViewModel::class.java)
         val dataTextView = findViewById<TextView>(R.id.data_text_view)
         val dataEditField = findViewById<EditText>(R.id.data_edit_text)
         val btnReceiveData = findViewById<Button>(R.id.receive_btn)
